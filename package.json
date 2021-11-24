@@ -1,0 +1,37 @@
+{
+  "name": "dashgo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3002",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/react": "^1.6.4",
+    "@dabeng/react-orgchart": "^1.0.0",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@hookform/resolvers": "^2.7.0",
+    "@svgr/webpack": "^5.5.0",
+    "framer-motion": "^4.1.17",
+    "next": "^11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.12.1",
+    "react-icons": "^4.2.0",
+    "react-input-mask": "^2.0.4",
+    "react-organizational-chart": "^2.1.0",
+    "react-query": "^3.19.1",
+    "sass": "^1.42.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@types/react": "^17.0.13",
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1",
+    "typescript": "^4.3.5"
+  }
+}
