@@ -5,11 +5,17 @@ export const theme = extendTheme({
     heading: "Roboto",
     body: "Roboto,",
   },
+  colors: {
+    blue: {
+      primary: "#4FB2EF",
+    },
+  },
   styles: {
     global: {
       body: {
-        bg: "gray.900",
-        color: "gray.50",
+        background:
+          "linear-gradient(140deg, rgba(0, 0, 0, 0.91), rgba(0, 0, 0, 0.91)), linear-gradient(286.67deg, rgba(254, 0, 0, 0.2) -0.05%, rgba(0, 194, 255, 1)0%)",
+        color: "black",
       },
     },
   },
