@@ -21,7 +21,7 @@ export default function SignIn() {
         <br />
         covid-19 nos proximos dias
       </Text>
-      <Stack color="gray.400" letterSpacing="0.02em">
+      <Stack zIndex={100} color="gray.400" letterSpacing="0.02em">
         <Text color="blue.primary" fontSize="1.3rem">
           Entendo a logica que foi pensada
         </Text>

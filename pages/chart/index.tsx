@@ -20,7 +20,13 @@ export default function ChartPage() {
         Digite a quantidade de dias e veja o gŕafico
       </Text>
       <Flex w="100%" justifyContent="center">
-        <Input type="number" border="1px solid gray" w="200px" mr="30px" />
+        <Input
+          color="white"
+          type="number"
+          border="1px solid gray"
+          w="200px"
+          mr="30px"
+        />
         <Button colorScheme="none" border="2px solid gray" color="blue.primary">
           Calcular
         </Button>
