@@ -26,6 +26,14 @@ export default function ChartPage() {
     lg: true,
   });
 
+  const toastParams = {
+    title: "Simulação concluida",
+    status: "success",
+    duration: 9000,
+    isClosable: true,
+    position: "top-right",
+  };
+
   /**
    * FUNÇÃO PARA PREVER OS CASOS DE COVID-19
    * O VALOR DE CASOS CONFIRMADOS NO MUNDO FOI CONSIDERADO O DO DIA 23/11/2022 QUE É O DIA
@@ -36,33 +44,39 @@ export default function ChartPage() {
    * UMA QUANTIDADE INICIAL DE CASOS NO DIA QUE FOI DEFINIDO A DA DATA EM QUE INICIEI O DESAFIO
    */
 
+  const shootToast = () => {
+    toast({
+      title: "Simulação concluida",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+      position: "top-right",
+    });
+  };
+
   const handleCalculateCasesOfCovid = (value, totalCases) => {
     let days = parseInt(value);
     let currentCases = totalCases;
     const percentage = Math.random() * (0.4 - 0.3) + 0.3;
 
     if (days > 0) {
-      const casesOfThisDay = currentCases * (percentage / 100) + currentCases;
-      const difference = casesOfThisDay - currentCases;
-      setFutureCases((oldState) => [
-        ...oldState,
-        Math.ceil(currentCases + difference),
-      ]);
+      const newCases = currentCases * (percentage / 100) + currentCases;
+      const difference = newCases - currentCases;
+      const newTotalCases = currentCases + difference;
+      const decreaseDays = days - 1;
+
+      setFutureCases((oldState) => [...oldState, Math.ceil(newTotalCases)]);
+
       setFutureCasesOfThisDay((oldState) => [
         ...oldState,
         Math.ceil(difference),
       ]);
-      handleCalculateCasesOfCovid(days - 1, currentCases + difference);
+
+      handleCalculateCasesOfCovid(decreaseDays, newTotalCases);
     }
 
     if (days === 0) {
-      toast({
-        title: "Simulação concluida",
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-        position: "top-right",
-      });
+      shootToast();
     }
   };
 
