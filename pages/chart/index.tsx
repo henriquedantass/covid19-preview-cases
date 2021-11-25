@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Router from "next/router";
 import {
   Text,
@@ -31,11 +31,12 @@ export default function ChartPage() {
    * O VALOR DE CASOS CONFIRMADOS NO MUNDO FOI CONSIDERADO O DO DIA 23/11/2022 QUE É O DIA
    * EM QUE EU INICIEI ESSE DESAFIO.
    *
+   *
    * PARA EVITAR CRIAR UM NOVO STATE NO REACT A MINHA FUNÇÃO RECEBE ALÉM DO NÚMERO DE DIAS
    * UMA QUANTIDADE INICIAL DE CASOS NO DIA QUE FOI DEFINIDO A DA DATA EM QUE INICIEI O DESAFIO
    */
 
-  const handleCalculateCasesOfCovid = async (value, totalCases) => {
+  const handleCalculateCasesOfCovid = (value, totalCases) => {
     let days = parseInt(value);
     let currentCases = totalCases;
     const percentage = Math.random() * (0.4 - 0.3) + 0.3;

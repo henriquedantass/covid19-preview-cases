@@ -46,6 +46,7 @@ export default function SignIn() {
         color="gray.300"
         fontSize="1.6rem"
         fontWeight="bold"
+        w={["", "50%"]}
         mb={["20px", "50px"]}
       >
         Essa aplicação tem como objetivo prever a quantidade de casos de

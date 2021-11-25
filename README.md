@@ -42,13 +42,21 @@ essas duas datas é de 671 dias.
   <img alt="workanalove" src="initialChart.png" object-fit="contain">
 </p>
 
-No entanto, levando como um contexto geral é dificil pegar uma média aceitavel de quantos % os casos aumentaram por dia devido no ínicio da pandemia nem todos os casos serem confirmados por falta de acessibilidade dos testes de covid19.
+No entanto, levando como um contexto geral é dificil pegar uma média
+aceitavel de quantos % os casos aumentaram por dia devido no ínicio da
+pandemia nem todos os casos serem confirmados por falta de
+acessibilidade dos testes de covid19 e eles serem valores bem maiores
+por estar ainda no ínicio da pandemia
 
-Sendo assim levando em consideração as datas de 23 de outubro de 2022 e 23 de novembro de 2022 onde o gráfico se encontra mais estável podemos definir uma quantidade média em % para o crescimento dos casos. Entre essas datas podemos notar uma diferença de 30 dias e no dia 23/10/2022 tivemos um total de 243.80 milhões de casos, no dia 23/11/2022 estamos com um valor de 258.79 milhões, levando em conta
-os dados do https://ourworldindata.org/coronavirus-data.
+Sendo assim foi levado em consideração as datas de 23 de outubro de
+2022 e 23 de novembro de 2022 onde o gráfico se encontra mais estável
+podemos definir uma quantidade média em % para o crescimento dos
+casos. Entre essas datas podemos notar uma diferença de 30 dias e no
+dia inicial (23/10/2022) tivemos um total de 243.80 milhões de casos,
+já no dia final (23/11/2022) estamos com um valor de 258.79 milhões.
 
 <p align="center">
   <img alt="workanalove" src="finalChart.png" object-fit="contain">
 </p>
 
-Por fim, uma estimativa de crescimento após os devidos calculos é de 0.3% a 0.5% por dia.
+Por fim, uma estimativa de crescimento após os devidos calculos é de 0.3% a 0.4% por dia.
