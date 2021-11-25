@@ -2,7 +2,19 @@ import dynamic from "next/dynamic";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-export function Graphics() {
+type CasesProps = {
+  numberOfCases: number;
+};
+
+interface GraphicsProps {
+  totalCasesOfCovid: CasesProps[];
+  dailyCasesOfCovid: CasesProps[];
+}
+
+export function Graphics({
+  totalCasesOfCovid,
+  dailyCasesOfCovid,
+}: GraphicsProps) {
   const options = {
     chart: {
       height: 350,
@@ -34,22 +46,7 @@ export function Graphics() {
         sizeOffset: 6,
       },
     },
-    xaxis: {
-      categories: [
-        "01 Jan",
-        "02 Jan",
-        "03 Jan",
-        "04 Jan",
-        "05 Jan",
-        "06 Jan",
-        "07 Jan",
-        "08 Jan",
-        "09 Jan",
-        "10 Jan",
-        "11 Jan",
-        "12 Jan",
-      ],
-    },
+
     tooltip: {
       y: [
         {
@@ -68,11 +65,12 @@ export function Graphics() {
 
   const series = [
     {
-      name: "Numero de casos",
-      data: [
-        319300200, 233456123, 300567123, 353456123, 102980203, 200567109,
-        101234870,
-      ],
+      name: "Numero total de casos",
+      data: totalCasesOfCovid,
+    },
+    {
+      name: "Numero de casos neste dia",
+      data: dailyCasesOfCovid,
     },
   ];
 
@@ -81,6 +79,7 @@ export function Graphics() {
       type="line"
       width={1200}
       height={400}
+      //@ts-ignore
       options={options}
       series={series}
     />

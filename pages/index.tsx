@@ -26,12 +26,19 @@ export default function SignIn() {
           Entendo a logica que foi pensada
         </Text>
         <Text>
-          De acordo com os gŕaficos da apresentados no
-          https://ourworldindata.org/coronavirus-data. No dia 22 de janeiro de
-          2020 tivemos 557 casos confirmados no mundo e no dia 23 de novembro de
-          2022 tivemos 257.56 milhões de casos confirmados no mundo. A diferença
-          entre essas duas datas é de 256 milhões 55 mil e 443 casos. A
-          quantidade de dias entre essas duas datas é de 671 dias.
+          De acordo com os gŕaficos da apresentados no{" "}
+          <a
+            target="blank"
+            href="https://ourworldindata.org/coronavirus-data"
+            style={{ color: "#4FB2EF" }}
+          >
+            Ourworldindata.
+          </a>{" "}
+          No dia 22 de janeiro de 2020 tivemos 557 casos confirmados no mundo e
+          no dia 23 de novembro de 2022 tivemos 257.56 milhões de casos
+          confirmados no mundo. A diferença entre essas duas datas é de 256
+          milhões 55 mil e 443 casos. A quantidade de dias entre essas duas
+          datas é de 671 dias.
         </Text>
         <Text>
           No entanto, levando como um contexto geral é dificil pegar uma média
@@ -45,14 +52,13 @@ export default function SignIn() {
           podemos definir uma quantidade média em % para o crescimento dos
           casos. Entre essas datas podemos notar uma diferença de 30 dias e no
           dia 23/10/2022 tivemos um total de 243.80 milhões de casos, no dia
-          23/11/2022 estamos com um valor de 258.79 milhões, levando em conta os
-          dados do https://ourworldindata.org/coronavirus-data.
+          23/11/2022 estamos com um valor de 258.79 milhões.
         </Text>
         <Text>
           Por fim, uma estimativa de crescimento após os devidos calculos é de{" "}
           {""}
           <span style={{ color: "#4FB2EF" }}>0.3%</span> a{" "}
-          <span style={{ color: "#4FB2EF" }}>0.5%</span> por dia.
+          <span style={{ color: "#4FB2EF" }}>0.4%</span> por dia.
         </Text>
       </Stack>
     </Flex>
