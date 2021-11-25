@@ -96,9 +96,9 @@ export default function ChartPage() {
           right="50px"
           colorScheme="none"
           color="blue.primary"
-          onClick={() => Router.push("/chart")}
+          onClick={() => Router.push("/")}
         >
-          Calcular uma estimativa
+          Voltar para home
         </Button>
       ) : (
         <DrawerMenu onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
