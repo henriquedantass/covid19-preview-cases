@@ -8,6 +8,7 @@ import {
   useToast,
   useBreakpointValue,
   useDisclosure,
+  UseToastOptions,
 } from "@chakra-ui/react";
 import { Graphics } from "../../src/components/Charts";
 import { Particles } from "../../src/components/Particles";
@@ -17,7 +18,7 @@ export default function ChartPage() {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [days, setDays] = useState<string>("");
+  const [days, setDays] = useState("");
   const [futureCases, setFutureCases] = useState([]);
   const [futureCasesOfThisDay, setFutureCasesOfThisDay] = useState([]);
 
@@ -25,14 +26,6 @@ export default function ChartPage() {
     base: false,
     lg: true,
   });
-
-  const toastParams = {
-    title: "Simulação concluida",
-    status: "success",
-    duration: 9000,
-    isClosable: true,
-    position: "top-right",
-  };
 
   /**
    * FUNÇÃO PARA PREVER OS CASOS DE COVID-19
@@ -44,20 +37,33 @@ export default function ChartPage() {
    * UMA QUANTIDADE INICIAL DE CASOS NO DIA QUE FOI DEFINIDO A DA DATA EM QUE INICIEI O DESAFIO
    */
 
-  const shootToast = () => {
+  const shootToast = ({ status, title }: UseToastOptions) => {
     toast({
-      title: "Simulação concluida",
-      status: "success",
+      title: title,
+      status: status,
       duration: 9000,
       isClosable: true,
       position: "top-right",
     });
   };
 
+  const resetInfos = () => {
+    setFutureCases([]);
+    setFutureCasesOfThisDay([]);
+    setDays("");
+  };
+
   const handleCalculateCasesOfCovid = (value, totalCases) => {
     let days = parseInt(value);
     let currentCases = totalCases;
     const percentage = Math.random() * (0.4 - 0.3) + 0.3;
+
+    if (value === "") {
+      shootToast({
+        status: "error",
+        title: "Digite uma quantidade de dias válida",
+      });
+    }
 
     if (days > 0) {
       const newCases = currentCases * (percentage / 100) + currentCases;
@@ -76,7 +82,7 @@ export default function ChartPage() {
     }
 
     if (days === 0) {
-      shootToast();
+      shootToast({ status: "success", title: "Simulação concluída" });
     }
   };
 
@@ -117,8 +123,7 @@ export default function ChartPage() {
         />
         <Button
           onClick={() => {
-            setFutureCases([]);
-            setFutureCasesOfThisDay([]);
+            resetInfos();
             handleCalculateCasesOfCovid(days, 258079000);
           }}
           colorScheme="none"
