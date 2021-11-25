@@ -60,3 +60,19 @@ já no dia final (23/11/2022) estamos com um valor de 258.79 milhões.
 </p>
 
 Por fim, uma estimativa de crescimento após os devidos calculos é de 0.3% a 0.4% por dia.
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido utilizando:
+
+- Next.js
+- TypeScript
+- ChakraUi
+- Apexcharts
+- Jest
+
+## FLUXOGRAMA
+
+<p align="center">
+  <img alt="workanalove" src="description.png" object-fit="contain">
+</p>
