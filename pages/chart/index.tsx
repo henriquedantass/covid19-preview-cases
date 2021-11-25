@@ -7,12 +7,16 @@ import {
   Button,
   useToast,
   useBreakpointValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { Graphics } from "../../src/components/Charts";
 import { Particles } from "../../src/components/Particles";
+import { DrawerMenu } from "../../src/components/Drawer";
 
 export default function ChartPage() {
   const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const [days, setDays] = useState<string>("");
   const [futureCases, setFutureCases] = useState([]);
   const [futureCasesOfThisDay, setFutureCasesOfThisDay] = useState([]);
@@ -62,17 +66,28 @@ export default function ChartPage() {
   };
 
   return (
-    <Flex w="100vw" h="100vh" flexDir="column" p="5rem" position="relative">
+    <Flex
+      w="100vw"
+      h="100vh"
+      flexDir="column"
+      p={["2rem", "5rem"]}
+      position="relative"
+    >
       {isWideSize && <Particles />}
-      <Button
-        colorScheme="none"
-        color="blue.primary"
-        position="absolute"
-        right="80px"
-        onClick={() => Router.push("/")}
-      >
-        Voltar
-      </Button>
+      {isWideSize ? (
+        <Button
+          w="fit-content"
+          position="absolute"
+          right="50px"
+          colorScheme="none"
+          color="blue.primary"
+          onClick={() => Router.push("/chart")}
+        >
+          Calcular uma estimativa
+        </Button>
+      ) : (
+        <DrawerMenu onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
+      )}
       <Text fontSize="1.2rem" color="blue.primary" textAlign="center" mb="20px">
         Digite a quantidade de dias e veja o gŕafico
       </Text>
@@ -88,6 +103,7 @@ export default function ChartPage() {
         <Button
           onClick={() => {
             setFutureCases([]);
+            setFutureCasesOfThisDay([]);
             handleCalculateCasesOfCovid(days, 258079000);
           }}
           colorScheme="none"
