@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import Router from "next/router";
-import { Text, Flex, Input, Button } from "@chakra-ui/react";
+import {
+  Text,
+  Flex,
+  Input,
+  Button,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { Graphics } from "../../src/components/Charts";
 import { Particles } from "../../src/components/Particles";
 
@@ -8,6 +14,11 @@ export default function ChartPage() {
   const [days, setDays] = useState<string>("");
   const [futureCases, setFutureCases] = useState([]);
   const [futureCasesOfThisDay, setFutureCasesOfThisDay] = useState([]);
+
+  const isWideSize = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
 
   /**
    * FUNÇÃO PARA PREVER OS CASOS DE COVID-19
@@ -40,7 +51,7 @@ export default function ChartPage() {
 
   return (
     <Flex w="100vw" h="100vh" flexDir="column" p="5rem" position="relative">
-      <Particles />
+      {isWideSize && <Particles />}
       <Button
         colorScheme="none"
         color="blue.primary"

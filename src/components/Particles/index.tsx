@@ -1,7 +1,8 @@
 import Particle from "react-particles-js";
+import { memo } from "react";
 import { Box } from "@chakra-ui/react";
 
-export const Particles = () => {
+const ParticlesComponent = () => {
   return (
     <Box w="100vw" h="100%" position="absolute" zIndex="0">
       <Particle
@@ -34,3 +35,5 @@ export const Particles = () => {
     </Box>
   );
 };
+
+export const Particles = memo(ParticlesComponent);

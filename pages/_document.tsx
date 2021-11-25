@@ -5,6 +5,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>COVID-19 PREVIEW</title>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <script src="https://cdn.rawgit.com/progers/pathseg/master/pathseg.js"></script>
           <link

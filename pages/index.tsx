@@ -1,11 +1,21 @@
-import { Text, Flex, Stack, Button, Input } from "@chakra-ui/react";
 import Router from "next/router";
 import { Particles } from "../src/components/Particles";
+import {
+  Text,
+  Flex,
+  Stack,
+  Button,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
 export default function SignIn() {
+  const isWideSize = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <Flex w="100vw" h="100vh" p="5rem" flexDir="column" position="relative">
-      <Particles />
+      {isWideSize && <Particles />}
       <Button
         w="fit-content"
         position="absolute"
