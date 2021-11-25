@@ -1,14 +1,10 @@
 import dynamic from "next/dynamic";
-
+import { Flex } from "@chakra-ui/react";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-type CasesProps = {
-  numberOfCases: number;
-};
-
 interface GraphicsProps {
-  totalCasesOfCovid: CasesProps[];
-  dailyCasesOfCovid: CasesProps[];
+  totalCasesOfCovid: number[];
+  dailyCasesOfCovid: number[];
 }
 
 export function Graphics({
@@ -75,13 +71,15 @@ export function Graphics({
   ];
 
   return (
-    <Chart
-      type="line"
-      width={1200}
-      height={400}
-      //@ts-ignore
-      options={options}
-      series={series}
-    />
+    <Flex id="teste">
+      <Chart
+        type="line"
+        width={1200}
+        height={400}
+        //@ts-ignore
+        options={options}
+        series={series}
+      />
+    </Flex>
   );
 }

@@ -18,10 +18,6 @@ export default function ChartPage() {
    * UMA QUANTIDADE INICIAL DE CASOS NO DIA QUE FOI DEFINIDO A DA DATA EM QUE INICIEI O DESAFIO
    */
 
-  useEffect(() => {
-    console.log(futureCases);
-  }, [futureCases]);
-
   const handleCalculateCasesOfCovid = async (value, totalCases) => {
     let days = parseInt(value);
     let currentCases = totalCases;
