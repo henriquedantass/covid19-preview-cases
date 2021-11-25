@@ -1,21 +1,18 @@
 import dynamic from "next/dynamic";
-import { Flex, useBreakpointValue } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 interface GraphicsProps {
   totalCasesOfCovid: number[];
   dailyCasesOfCovid: number[];
+  widthOfGraphic: number;
 }
 
 export function Graphics({
   totalCasesOfCovid,
   dailyCasesOfCovid,
+  widthOfGraphic,
 }: GraphicsProps) {
-  const isWideSize = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
-
   const options = {
     chart: {
       height: 350,
@@ -98,7 +95,7 @@ export function Graphics({
     <Flex w="100%" justifyContent="center">
       <Chart
         type="line"
-        width={isWideSize ? 1000 : 350}
+        width={widthOfGraphic}
         height={400}
         //@ts-ignore
         options={options}

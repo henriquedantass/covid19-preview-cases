@@ -13,6 +13,7 @@ jest.mock("react-apexcharts", () => {
 test("graphics render", () => {
   const { debug } = render(
     <Graphics
+      widthOfGraphic={500}
       dailyCasesOfCovid={[
         258996667, 259916105, 260707862, 261519054, 262562343,
       ]}

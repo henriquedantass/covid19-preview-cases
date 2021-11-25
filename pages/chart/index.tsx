@@ -118,6 +118,7 @@ export default function ChartPage() {
         <Graphics
           dailyCasesOfCovid={futureCasesOfThisDay}
           totalCasesOfCovid={futureCases}
+          widthOfGraphic={isWideSize ? 1000 : 350}
         />
       </Flex>
     </Flex>
