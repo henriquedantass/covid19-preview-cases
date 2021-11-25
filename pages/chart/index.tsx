@@ -5,12 +5,14 @@ import {
   Flex,
   Input,
   Button,
+  useToast,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Graphics } from "../../src/components/Charts";
 import { Particles } from "../../src/components/Particles";
 
 export default function ChartPage() {
+  const toast = useToast();
   const [days, setDays] = useState<string>("");
   const [futureCases, setFutureCases] = useState([]);
   const [futureCasesOfThisDay, setFutureCasesOfThisDay] = useState([]);
@@ -47,6 +49,16 @@ export default function ChartPage() {
       ]);
       handleCalculateCasesOfCovid(days - 1, currentCases + difference);
     }
+
+    if (days === 0) {
+      toast({
+        title: "Simulação concluida",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+        position: "top-right",
+      });
+    }
   };
 
   return (
@@ -81,7 +93,7 @@ export default function ChartPage() {
           colorScheme="none"
           border="2px solid gray"
           color="blue.primary"
-          disabled={days.length === 0 ? true : false}
+          disabled={parseInt(days) <= 0 ? true : false}
         >
           Calcular
         </Button>
