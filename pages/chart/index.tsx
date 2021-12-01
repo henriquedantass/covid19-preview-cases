@@ -30,7 +30,7 @@ export default function ChartPage() {
   /**
    * FUNÇÃO PARA PREVER OS CASOS DE COVID-19
    * O VALOR DE CASOS CONFIRMADOS NO MUNDO FOI CONSIDERADO O DO DIA 23/11/2022 QUE É O DIA
-   * EM QUE EU INICIEI ESSE DESAFIO.
+   * EM QUE EU INICIEI ESSE DESAFIO (243790000) e a porcentagem é de 0.2% ao dia
    *
    *
    * PARA EVITAR CRIAR UM NOVO STATE NO REACT A MINHA FUNÇÃO RECEBE ALÉM DO NÚMERO DE DIAS
@@ -56,7 +56,7 @@ export default function ChartPage() {
   const handleCalculateCasesOfCovid = (value, totalCases) => {
     let days = parseInt(value);
     let currentCases = totalCases;
-    const percentage = Math.random() * (0.4 - 0.3) + 0.3;
+    const percentage = 0.2;
 
     if (value === "") {
       shootToast({
@@ -124,7 +124,7 @@ export default function ChartPage() {
         <Button
           onClick={() => {
             resetInfos();
-            handleCalculateCasesOfCovid(days, 258079000);
+            handleCalculateCasesOfCovid(days, 258790000);
           }}
           colorScheme="none"
           border="2px solid gray"

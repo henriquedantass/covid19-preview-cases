@@ -52,14 +52,14 @@ Sendo assim foi levado em consideração as datas de 23 de outubro de
 2022 e 23 de novembro de 2022 onde o gráfico se encontra mais estável
 podemos definir uma quantidade média em % para o crescimento dos
 casos. Entre essas datas podemos notar uma diferença de 30 dias e no
-dia inicial (23/10/2022) tivemos um total de 243.80 milhões de casos,
+dia inicial (23/10/2022) tivemos um total de 243.79 milhões de casos,
 já no dia final (23/11/2022) estamos com um valor de 258.79 milhões.
 
 <p align="center">
   <img alt="workanalove" src="finalChart.png" object-fit="contain">
 </p>
 
-Por fim, uma estimativa de crescimento após os devidos calculos é de 0.3% a 0.4% por dia.
+Por fim, uma estimativa de crescimento após os devidos calculos é de 0.2% ao dia, tendo variações entre 0.15% e 0.26%. Sendo assim, para os calculos da aplicação serão utilizados os casos atuais sendo 258.79 milhões e uma variação de 0.2% por dia.
 
 ## 🚀 Tecnologias
 

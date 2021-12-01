@@ -87,10 +87,10 @@ export default function SignIn() {
           já no dia final (23/11/2022) estamos com um valor de 258.79 milhões.
         </Text>
         <Text>
-          Por fim, uma estimativa de crescimento após os devidos calculos é de{" "}
-          {""}
-          <span style={{ color: "#4FB2EF" }}>0.3%</span> a{" "}
-          <span style={{ color: "#4FB2EF" }}>0.4%</span> por dia.
+          Por fim, uma estimativa de crescimento após os devidos calculos é de
+          0.2% ao dia, tendo variações entre 0.15% e 0.26%. Sendo assim, para os
+          calculos da aplicação serão utilizados os casos atuais sendo 258.79
+          milhões e uma variação de 0.2% por dia.
         </Text>
       </Stack>
     </Flex>
