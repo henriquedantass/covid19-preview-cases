@@ -1,6 +1,7 @@
 {
   "name": "covid19-preview",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": "Henrique Dantas",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3002",
