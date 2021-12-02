@@ -37,8 +37,9 @@ export function Graphics({
             },
           },
           legend: {
-            position: "right",
+            position: "bottom",
             verticalAlign: "top",
+            // show: false,
           },
         },
       },
