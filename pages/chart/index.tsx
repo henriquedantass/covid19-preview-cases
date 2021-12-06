@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Router from "next/router";
 import {
   Text,
@@ -11,13 +11,13 @@ import {
   UseToastOptions,
 } from "@chakra-ui/react";
 import { Graphics } from "../../src/components/Charts";
-import { Particles } from "../../src/components/Particles";
 import { DrawerMenu } from "../../src/components/Drawer";
+import covid19API from "../../src/services/covid19api";
 
 export default function ChartPage() {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const [currentCases, setCurrentCases] = useState();
   const [days, setDays] = useState("");
   const [futureCases, setFutureCases] = useState([]);
   const [futureCasesOfThisDay, setFutureCasesOfThisDay] = useState([]);
@@ -27,15 +27,20 @@ export default function ChartPage() {
     lg: true,
   });
 
-  /**
-   * FUNÇÃO PARA PREVER OS CASOS DE COVID-19
-   * O VALOR DE CASOS CONFIRMADOS NO MUNDO FOI CONSIDERADO O DO DIA 23/11/2022 QUE É O DIA
-   * EM QUE EU INICIEI ESSE DESAFIO (243790000) e a porcentagem é de 0.2% ao dia
-   *
-   *
-   * PARA EVITAR CRIAR UM NOVO STATE NO REACT A MINHA FUNÇÃO RECEBE ALÉM DO NÚMERO DE DIAS
-   * UMA QUANTIDADE INICIAL DE CASOS NO DIA QUE FOI DEFINIDO A DA DATA EM QUE INICIEI O DESAFIO
-   */
+  useEffect(() => {
+    covid19API
+      .get("/api")
+      .then((response) => {
+        const data = response.data;
+        setCurrentCases(data.confirmed.value);
+      })
+      .catch(() => {
+        shootToast({
+          status: "error",
+          title: "Desculpe, algo deu errado",
+        });
+      });
+  }, []);
 
   const shootToast = ({ status, title }: UseToastOptions) => {
     toast({
@@ -91,10 +96,15 @@ export default function ChartPage() {
       w="100vw"
       h="100vh"
       flexDir="column"
-      p={["2rem", "5rem"]}
+      p={["2rem", "3rem"]}
       position="relative"
     >
-      {isWideSize && <Particles />}
+      <Flex w="100%" mb="20px">
+        <Text color="blue.primary">
+          Quantidade de casos confirmados no mundo:{" "}
+          <span style={{ color: "#FFF" }}>{currentCases}</span>
+        </Text>
+      </Flex>
       {isWideSize ? (
         <Button
           w="fit-content"
@@ -116,6 +126,7 @@ export default function ChartPage() {
         <Input
           color="white"
           type="number"
+          value={days}
           border="1px solid gray"
           w="200px"
           mr="30px"
@@ -124,7 +135,7 @@ export default function ChartPage() {
         <Button
           onClick={() => {
             resetInfos();
-            handleCalculateCasesOfCovid(days, 258790000);
+            handleCalculateCasesOfCovid(days, currentCases);
           }}
           colorScheme="none"
           border="2px solid gray"

@@ -59,7 +59,9 @@ já no dia final (23/11/2022) estamos com um valor de 258.79 milhões.
   <img alt="workanalove" src="finalChart.png" object-fit="contain">
 </p>
 
-Por fim, uma estimativa de crescimento após os devidos calculos é de 0.2% ao dia, tendo variações entre 0.15% e 0.26%. Sendo assim, para os calculos da aplicação serão utilizados os casos atuais sendo 258.79 milhões e uma variação de 0.2% por dia.
+Por fim, uma estimativa de crescimento após os devidos calculos é de
+0.2% ao dia, tendo variações entre 0.15% e 0.26%. Sendo assim, para os
+calculos da aplicação será utilizado uma variação de 0.2% por dia.
 
 ## 🚀 Tecnologias
 
